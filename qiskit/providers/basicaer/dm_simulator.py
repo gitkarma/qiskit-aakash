@@ -38,6 +38,8 @@ H. Chaudhary, B. Mahato, L. Priyadarshi, N. Roshan, Utkarsh and A. Patel, arXiv:
 import uuid
 import time
 import logging
+# Henry
+import sys
 
 from math import log2
 from collections import Counter
@@ -487,7 +489,9 @@ class DmSimulatorPy(BaseBackend):
             plt.bar(prob.keys(),prob.values())
             plt.title(f"Probability Distribution for ensemble measurement in {basis} basis")
             plt.xticks(rotation='vertical')
-            plt.show()
+            #plt.show()
+	    ## For printing it on the stdout - Henry ##
+            plt.savefig(sys.stdout.buffer,format='svg')
 
     def _add_partial_measure(self, measured_qubits, cmembits, cregbits, err_param, basis, add_param=None):
         """ Perform partial measurement for current density matrix on the specified qubits along the given common basis direction.
@@ -805,7 +809,9 @@ class DmSimulatorPy(BaseBackend):
 
         ax.bar3d(x-0.25, y-0.25, bottom, width, depth, top, color=colors, alpha=0.8, shade=True)
 
-        plt.show()
+        #plt.show()
+	 ## For printing it on the stdout - Henry ##
+        plt.savefig(sys.stdout.buffer,format='svg')
 
     def _add_qasm_reset(self, qubit):
         """ Reset the qubit to the zero state.
